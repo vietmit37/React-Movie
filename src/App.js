@@ -1,23 +1,16 @@
 import "./App.css";
+import RoutesComponent from "./routes";
+import { Box } from "@mui/system";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Box py={3} bgcolor="black" color="white" textAlign={'center'}>Header</Box>
+      <Box>
+        <RoutesComponent />
+      </Box>
+      <Box py={3} bgcolor="black" color="white" textAlign={'center'}>Fotter</Box>
+    </Box>
   );
 }
 
