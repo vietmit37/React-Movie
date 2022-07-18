@@ -1,23 +1,21 @@
+import HomePage from "./pages/HomePage";
 import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { renderRoutes } from "./routes";
+import { Suspense } from "react";
+import Loader from "components/Loader";
+import LoginPage from "pages/LoginPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loader />}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<HomePage />} />
+          <Route path="/auth" element={<LoginPage />} />
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
