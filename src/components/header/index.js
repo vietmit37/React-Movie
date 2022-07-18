@@ -34,8 +34,6 @@ export default function Header(props) {
     width: "100%",
   });
 
-  const [hover, setHover] = useState(false);
-
   const [navLink, setNavLink] = useState({
     color: "white",
   });
@@ -99,30 +97,15 @@ export default function Header(props) {
               </LinkLogo>
             </Logo>
             <Contact>
-              <StyledNavLink
-                style={navLink}
-                onMouseOver={() => setHover(true ? "hover" : navLink)}
-                onMouseOut={() => setHover(false ? navLink : "hover")}
-                property={hover.toString()}
-              >
+              <StyledNavLink style={navLink}>
                 <HomeIcon sx={{ fontSize: 35 }} />
                 Trang Chủ
               </StyledNavLink>
-              <StyledNavLink
-                style={navLink}
-                onMouseOver={() => setHover(true ? "hover" : "")}
-                onMouseOut={() => setHover(false ? "" : "hover")}
-                property={hover.toString()}
-              >
+              <StyledNavLink style={navLink}>
                 <NewspaperIcon />
                 Tin Tức
               </StyledNavLink>
-              <StyledNavLink
-                style={navLink}
-                onMouseOver={() => setHover(true ? "hover" : "")}
-                onMouseOut={() => setHover(false ? "" : "hover")}
-                property={hover.toString()}
-              >
+              <StyledNavLink style={navLink}>
                 <ContactsIcon />
                 Liên Hệ
               </StyledNavLink>
@@ -229,27 +212,15 @@ export default function Header(props) {
                   </Button>
                 </DivNormal>
                 <DivNormal>
-                  <StyledNavLinkSmallScreen
-                    onMouseOver={() => setHover(true ? "hover" : navLink)}
-                    onMouseOut={() => setHover(false ? navLink : "hover")}
-                    property={hover.toString()}
-                  >
+                  <StyledNavLinkSmallScreen>
                     <HomeIcon sx={{ fontSize: 30 }} />
                     Trang Chủ
                   </StyledNavLinkSmallScreen>
-                  <StyledNavLinkSmallScreen
-                    onMouseOver={() => setHover(true ? "hover" : "")}
-                    onMouseOut={() => setHover(false ? "" : "hover")}
-                    property={hover.toString()}
-                  >
+                  <StyledNavLinkSmallScreen>
                     <NewspaperIcon />
                     Tin Tức
                   </StyledNavLinkSmallScreen>
-                  <StyledNavLinkSmallScreen
-                    onMouseOver={() => setHover(true ? "hover" : "")}
-                    onMouseOut={() => setHover(false ? "" : "hover")}
-                    property={hover.toString()}
-                  >
+                  <StyledNavLinkSmallScreen>
                     <ContactsIcon />
                     Liên Hệ
                   </StyledNavLinkSmallScreen>

@@ -48,7 +48,7 @@ const StyledNavLink = styled(NavLink)`
   color: white;
   &:hover,
   &:focus {
-    color: ${(props) => (props.hover ? "palevioletred" : "white")};
+    color: palevioletred !important;
     font-weight: bold;
     transition: all 0.3s;
   }
