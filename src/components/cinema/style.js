@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 const StyledImg = styled.img``;
 
 const ListCinema = styled.div`
-  // width: 400px;
+  width: 550px;
   display: flex;
   gap: 10px;
 `;
