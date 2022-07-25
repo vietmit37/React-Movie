@@ -5,14 +5,23 @@ import {
   LIST_MOVIE_SHOWING,
   LIST_MOVIE_PREPARE_SHOWING,
 } from "redux/constants/listMovie";
+<<<<<<< HEAD
 import { movieServices } from "services/movieService";
+=======
+import { movieService } from "services/movieService";
+>>>>>>> 446d025fb50ae36ca88537e21dade91d5d18b5c8
 
 const actFetchData = () => {
   return (dispatch) => {
     dispatch(actListMovieRequest());
 
+<<<<<<< HEAD
     movieServices
       .getMovie()
+=======
+    movieService
+      .getFilm()
+>>>>>>> 446d025fb50ae36ca88537e21dade91d5d18b5c8
       .then((res) => {
         dispatch(actListMovieSuccess(res.data.content));
       })

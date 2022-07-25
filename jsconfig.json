@@ -1,11 +1,12 @@
 {
-    "compilerOptions": {
-      "baseUrl": "./src",
-      "paths": {
-        "utils/*": ["./src/utils/*"],
-        "components/*": ["./src/components/*"],
-        "services/*":["./src/services/*"],
-        "redux/*":["./src/redux/*"]
-      }
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "utils/*": ["./src/utils/*"],
+      "components/*": ["./src/components/*"],
+      "services/*": ["./src/services/*"],
+      "redux/*": ["./src/redux/*"],
+      "@type/*": ["./src/@type/*"]
     }
+  }
 }
