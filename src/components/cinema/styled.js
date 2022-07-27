@@ -1,4 +1,4 @@
-import { StyledLink } from "layout/mainLayout/styled";
+import { StyledLink } from "components/header/styled";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
@@ -23,7 +23,10 @@ const FlexDiv = styled.div`
 
 const TitleCinema = styled.div`
   text-align: left;
+  display: flex;
+  flex-direction: column;
   margin-left: 2px;
+  overflow-x: hidden;
 `;
 
 const ContentCinema = styled.p`

@@ -10,7 +10,7 @@ export function FooterContainer() {
   const renderCinemaLogo = () => {
     return data?.map((heThongRap, index) => {
       return (
-        <>
+       
           <Grid item xs={4} key={index}>
             <img
               src={heThongRap.logo}
@@ -19,7 +19,7 @@ export function FooterContainer() {
               style={{ width: "40px" }}
             />
           </Grid>
-        </>
+       
       );
     });
   };

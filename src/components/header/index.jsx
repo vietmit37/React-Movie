@@ -15,15 +15,16 @@ import {
   MenuSmallScreen,
   StyledLink,
   StyledNavLinkSmallScreen,
-} from "./style";
-import NewspaperIcon from "@mui/icons-material/Newspaper";
-import ContactsIcon from "@mui/icons-material/Contacts";
+  TitleH3
+} from "./styled";
 import { animateScroll as scroll } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { DivNormal } from "components/cinema/style";
+import { DivNormal } from "components/cinema/styled";
 import HomeIcon from "@mui/icons-material/Home";
+import { useSelector } from "react-redux";
+
 
 export default function Header(props) {
   const [header, setHeader] = useState({
@@ -33,6 +34,75 @@ export default function Header(props) {
     zIndex: "100",
     width: "100%",
   });
+
+
+  const user = useSelector(state => state.authReducer);
+
+  const renderAvatar = (user) => {
+    
+      if(localStorage.getItem('UserCustomer')) {
+        return (
+          <>
+            <DivNormal>
+            <TitleH3 style={navLink}>Hello, {user}</TitleH3>
+          </DivNormal>
+          <ButtonLog variant="contained" onClick={() => {
+            localStorage.removeItem('UserCustomer')
+          }}>
+            <StyledLink to={``}>Đăng xuất</StyledLink>
+          </ButtonLog>
+          </>
+        )
+      } else {
+        return  (
+          <>
+              <ButtonLog variant="contained">
+                <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
+              </ButtonLog>
+              <ButtonLog variant="contained">
+                <StyledLink to={`/register`}>Đăng ký</StyledLink>
+              </ButtonLog>
+          </>
+        )
+      }
+
+  }
+
+
+  const renderAvatarSmallScreen = (user) => {
+    
+    if(localStorage.getItem('UserCustomer')) {
+      return (
+        <>
+          <DivNormal>
+          <TitleH3 style={{
+            color: 'black',
+            marginRight: '0px',
+            textAlign: 'center'
+          }}>Hello, {user}</TitleH3>
+        </DivNormal>
+        <ButtonLog variant="contained" onClick={() => {
+          localStorage.removeItem('UserCustomer')
+        }}>
+          <StyledLink to={``}>Đăng xuất</StyledLink>
+        </ButtonLog>
+        </>
+      )
+    } else {
+      return  (
+        <>
+            <ButtonLog variant="contained">
+              <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
+            </ButtonLog>
+            <ButtonLog variant="contained">
+              <StyledLink to={`/register`}>Đăng ký</StyledLink>
+            </ButtonLog>
+        </>
+      )
+    }
+
+}
+
 
   const [navLink, setNavLink] = useState({
     color: "white",
@@ -93,75 +163,17 @@ export default function Header(props) {
               }}
             >
               <LinkLogo>
-                <Image src="./assets/logo.png" />
+                <Image src="../img/logo.png" />
               </LinkLogo>
             </Logo>
             <Contact>
-              <StyledNavLink style={navLink}>
+              <StyledNavLink style={navLink} to="/">
                 <HomeIcon sx={{ fontSize: 35 }} />
                 Trang Chủ
               </StyledNavLink>
-              <StyledNavLink style={navLink}>
-                <NewspaperIcon />
-                Tin Tức
-              </StyledNavLink>
-              <StyledNavLink style={navLink}>
-                <ContactsIcon />
-                Liên Hệ
-              </StyledNavLink>
-              {/* <Link
-                to=""
-                smooth={true}
-                duration={1000}
-                style={{
-                  color: "white",
-                  fontSize: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-              >
-                <HomeIcon sx={{ fontSize: 35 }} />
-                Trang Chủ
-              </Link>
-              <Link
-                to="news"
-                smooth={true}
-                duration={1000}
-                style={{
-                  color: "white",
-                  fontSize: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-              >
-                <NewspaperIcon />
-                Tin Tức
-              </Link>
-              <Link
-                to=""
-                smooth={true}
-                duration={1000}
-                style={{
-                  color: "white",
-                  fontSize: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-              >
-                <ContactsIcon />
-                Lien He
-              </Link> */}
             </Contact>
             <Log>
-              <ButtonLog variant="contained">
-                <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
-              </ButtonLog>
-              <ButtonLog variant="contained">
-                <StyledLink to={`/`}>Đăng ký</StyledLink>
-              </ButtonLog>
+              {renderAvatar(user?.userLogin.taiKhoan)}
             </Log>
           </HeaderContent>
         </BigScreen>
@@ -174,7 +186,7 @@ export default function Header(props) {
               }}
             >
               <LinkLogo>
-                <Image src="./assets/logo.png" />
+                <Image src="../img/logo.png" />
               </LinkLogo>
             </Logo>
             <Contact>
@@ -212,18 +224,11 @@ export default function Header(props) {
                   </Button>
                 </DivNormal>
                 <DivNormal>
-                  <StyledNavLinkSmallScreen>
+                  <StyledNavLinkSmallScreen to="/">
                     <HomeIcon sx={{ fontSize: 30 }} />
                     Trang Chủ
                   </StyledNavLinkSmallScreen>
-                  <StyledNavLinkSmallScreen>
-                    <NewspaperIcon />
-                    Tin Tức
-                  </StyledNavLinkSmallScreen>
-                  <StyledNavLinkSmallScreen>
-                    <ContactsIcon />
-                    Liên Hệ
-                  </StyledNavLinkSmallScreen>
+
                   <DivNormal
                     style={{
                       display: "flex",
@@ -232,12 +237,7 @@ export default function Header(props) {
                       gap: "5px",
                     }}
                   >
-                    <ButtonLog variant="contained">
-                      <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
-                    </ButtonLog>
-                    <ButtonLog variant="contained">
-                      <StyledLink to={`/`}>Đăng ký</StyledLink>
-                    </ButtonLog>
+                    {renderAvatarSmallScreen(user?.userLogin.taiKhoan)}
                   </DivNormal>
                 </DivNormal>
               </MenuSmallScreen>

@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import StarIcon from "@mui/icons-material/Star";
 import moment from "moment";
-// import { Link } from "@mui/material";
-
-import {
-  Avatar,
-  Box,
-  Breadcrumbs,
-  Button,
-  Tab,
-  Tabs,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Button, Tab, Tabs, Typography } from "@mui/material";
 import "./index.css";
-import { LinkHeader } from "./styled";
 import Loader from "components/Loader";
 import { getLichChieuRap } from "redux/actions/quanLiRap";
+import { StyledNavLink } from "components/header/styled";
+import { ButtonLog } from "components/header/styled";
 
 const DetailMovie = (props) => {
   const { thongTinRapChieu, loadingLichChieuRap } = useSelector(
@@ -45,8 +36,8 @@ const DetailMovie = (props) => {
     <div className="detail">
       <div className="detail-content">
         {/* Top */}
-        <Box w={1} bgcolor={"#212121"} p={2}>
-          <Breadcrumbs mb={2} color="white" w={1}>
+        <Box w={1} bgcolor={"#212121"} style={{ padding: "5rem 16px" }}>
+          {/* <Breadcrumbs mb={2} color="white" w={1}>
             <LinkHeader
               sx={{
                 color: "white",
@@ -70,7 +61,7 @@ const DetailMovie = (props) => {
             >
               CHI TIẾT
             </Typography>
-          </Breadcrumbs>
+          </Breadcrumbs> */}
           <Box
             sx={{
               width: "1",
@@ -84,13 +75,19 @@ const DetailMovie = (props) => {
                 minWidth: { xs: "100%", sm: "360px" },
                 height: { xs: "400px", sm: "480px" },
                 backgroundImage: `url(${thongTinRapChieu.hinhAnh})`,
-                backgroundPosition: "center",
                 backgroundSize: { xs: "cover", md: "contain" },
                 backgroundRepeat: "no-repeat",
                 margin: { xs: "0 auto", md: "0" },
                 marginBottom: { xs: "20px", md: "0" },
+                borderRadius: "10px",
               }}
-            ></Box>
+            >
+              <img
+                src={thongTinRapChieu.hinhAnh}
+                style={{ width: "360px", height: "100%", borderRadius: "10px" }}
+                alt={thongTinRapChieu.hinhAnh}
+              />
+            </Box>
             <Box
               sx={{ flexGrow: "1", paddingLeft: { xs: "0", md: "10px" } }}
               position="relative"
@@ -157,7 +154,7 @@ const DetailMovie = (props) => {
           </Box>
         </Box>
 
-        {thongTinRapChieu.heThongRapChieu.length !== 0 && (
+        {thongTinRapChieu?.heThongRapChieu.length !== 0 && (
           <Box color="white" bgcolor={"#212121"} mt={1} p={2}>
             <Typography
               variant="h4"
@@ -281,9 +278,16 @@ const DetailMovie = (props) => {
                                 </Typography>
                               </Box>
                             </Box>
-                            <Link to={`/bookingTicket/${item.maLichChieu}`}>
-                              Mua Vé
-                            </Link>
+                            <ButtonLog variant="contained">
+                              <StyledNavLink
+                                style={{
+                                  fontSize: "12px",
+                                }}
+                                to={`/bookingTicket/${item.maLichChieu}`}
+                              >
+                                Mua Vé
+                              </StyledNavLink>
+                            </ButtonLog>
                           </div>
                         ))}
                       </Box>

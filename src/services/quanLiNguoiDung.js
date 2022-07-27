@@ -7,4 +7,7 @@ export const quanLiNguoiDung = {
   layThongTinNguoiDung: () => {
     return api.post(`QuanLyNguoiDung/ThongTinTaiKhoan`);
   },
+  getRegister(user) {
+    return api.post("QuanLyNguoiDung/DangKy", user);
+  },
 };

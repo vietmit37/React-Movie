@@ -17,7 +17,7 @@ import {
   StyledP,
   DetailIcon,
 } from "./styled";
-import { Container } from "layout/mainLayout/styled";
+import { Container } from "components/header/styled";
 
 const { TabPane } = Tabs;
 

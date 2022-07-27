@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 
 const TitleMovie = styled(Typography)`
   height: 100px;
@@ -84,6 +85,13 @@ const FlipCardBack = styled.div`
 
 const TagSpan = styled.span``;
 
+const StyledLink = styled(Link)`
+  color: black !important;
+  &:hover {
+    color: palevioletred !important;
+    transition: all 0.3s;
+  }
+`;
 export {
   TitleMovie,
   StyledImg,
@@ -96,4 +104,5 @@ export {
   FlipCardFront,
   FlipCardBack,
   TagSpan,
+  StyledLink,
 };

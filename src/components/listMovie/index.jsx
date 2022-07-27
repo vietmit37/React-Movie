@@ -1,4 +1,3 @@
-import Loader from "components/Loader";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Movie from "./movie";
@@ -7,10 +6,9 @@ import {
   actListMovieSuccessPrepareShowing,
   actListMovieSuccessShowing,
 } from "redux/actions/listMovie";
-import { DivNormal } from "components/cinema/styled";
 import Slider from "react-slick";
 import { DivArrow, StyleButton } from "./styled";
-import { Container } from "layout/mainLayout/styled";
+import { Container } from "components/header/styled";
 
 export default function ListMovie() {
   const dispatch = useDispatch();
@@ -24,10 +22,8 @@ export default function ListMovie() {
 
   const { data } = props;
   const renderListMovie = () => {
-    const { data, loading } = props;
-    if (loading) {
-      return <Loader />;
-    }
+    const { data } = props;
+   
     return data?.slice(0, 16).map((movie) => {
       return (
         // <DivNormal

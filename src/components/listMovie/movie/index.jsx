@@ -7,10 +7,9 @@ import {
   StyledImg,
   FlipCardBack,
   NameTag,
-  TagSpan,
+  StyledLink
 } from "./styled";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import { Link } from "react-router-dom";
 
 export default function Movie(props) {
   const { movie } = props;
@@ -80,14 +79,12 @@ export default function Movie(props) {
         <DivNormal
           style={{ display: "flex", alignItems: "center", marginLeft: "39%" }}
         >
-          <Link className="btn btn-success" to={`detailMovie/${movie.maPhim}`}>
-            Đặt Vé
-          </Link>
-          <svg
+          <StyledLink style={{ display: "flex", alignItems: "center", gap: '5px' }}   to={`detailMovie/${movie.maPhim}`}>
+            Chi Tiết 
+            <svg
             style={{
-              marginLeft: "0.5rem",
-              width: "1rem",
-              height: "1rem",
+              width: "0.8rem",
+              height: "0.8rem",
             }}
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -99,6 +96,8 @@ export default function Movie(props) {
             <path d="M5 12h14" />
             <path d="M12 5l7 7-7 7" />
           </svg>
+          </StyledLink>
+          
         </DivNormal>
       </DivNormal>
     </FlipCardDiv>

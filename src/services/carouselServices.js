@@ -1,4 +1,4 @@
-import { api } from "./baseServices";
+import { api } from "./baseService";
 
 export const carouselService = {
   getCarousel() {
