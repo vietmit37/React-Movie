@@ -9,4 +9,8 @@ export const quanLiDatVeService = {
   datVe: (thongTinDatVe = new ThongTinDatVe()) => {
     return api.post(`QuanLyDatVe/DatVe`, thongTinDatVe);
   },
+  // Admin
+  taoLichChieu: (thongTinLichChieu) => {
+    return api.post(`QuanLyDatVe/TaoLichChieu`, thongTinLichChieu);
+  },
 };

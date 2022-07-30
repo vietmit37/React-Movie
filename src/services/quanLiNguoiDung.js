@@ -10,4 +10,7 @@ export const quanLiNguoiDung = {
   getRegister(user) {
     return api.post("QuanLyNguoiDung/DangKy", user);
   },
+  layDanhSachNguoiDung: () => {
+    return api.get(`QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`);
+  },
 };

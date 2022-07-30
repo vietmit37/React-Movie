@@ -14,13 +14,13 @@ const initialState = {
   loadingAuth: false,
   userLogin: infoUser,
   thongTinNguoiDung: new ThongTinNguoiDung(),
-
   error: null,
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_REQUEST: {
+      state.loadingAuth = true;
       state.error = null;
       return { ...state };
     }

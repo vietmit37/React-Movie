@@ -15,7 +15,7 @@ import {
   MenuSmallScreen,
   StyledLink,
   StyledNavLinkSmallScreen,
-  TitleH3
+  TitleH3,
 } from "./styled";
 import { animateScroll as scroll } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -24,7 +24,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import { DivNormal } from "components/cinema/styled";
 import HomeIcon from "@mui/icons-material/Home";
 import { useSelector } from "react-redux";
-
 
 export default function Header(props) {
   const [header, setHeader] = useState({
@@ -35,74 +34,75 @@ export default function Header(props) {
     width: "100%",
   });
 
-
-  const user = useSelector(state => state.authReducer);
+  const user = useSelector((state) => state.authReducer);
 
   const renderAvatar = (user) => {
-    
-      if(localStorage.getItem('UserCustomer')) {
-        return (
-          <>
-            <DivNormal>
-            <TitleH3 style={navLink}>Hello, {user}</TitleH3>
-          </DivNormal>
-          <ButtonLog variant="contained" onClick={() => {
-            localStorage.removeItem('UserCustomer')
-          }}>
-            <StyledLink to={``}>Đăng xuất</StyledLink>
-          </ButtonLog>
-          </>
-        )
-      } else {
-        return  (
-          <>
-              <ButtonLog variant="contained">
-                <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
-              </ButtonLog>
-              <ButtonLog variant="contained">
-                <StyledLink to={`/register`}>Đăng ký</StyledLink>
-              </ButtonLog>
-          </>
-        )
-      }
-
-  }
-
-
-  const renderAvatarSmallScreen = (user) => {
-    
-    if(localStorage.getItem('UserCustomer')) {
+    if (localStorage.getItem("UserCustomer")) {
       return (
         <>
           <DivNormal>
-          <TitleH3 style={{
-            color: 'black',
-            marginRight: '0px',
-            textAlign: 'center'
-          }}>Hello, {user}</TitleH3>
-        </DivNormal>
-        <ButtonLog variant="contained" onClick={() => {
-          localStorage.removeItem('UserCustomer')
-        }}>
-          <StyledLink to={``}>Đăng xuất</StyledLink>
-        </ButtonLog>
+            <TitleH3 style={navLink}>Hello, {user}</TitleH3>
+          </DivNormal>
+          <ButtonLog
+            variant="contained"
+            onClick={() => {
+              localStorage.removeItem("UserCustomer");
+              window.location.reload();
+            }}
+          >
+            <StyledLink to={``}>Đăng xuất</StyledLink>
+          </ButtonLog>
         </>
-      )
+      );
     } else {
-      return  (
+      return (
         <>
-            <ButtonLog variant="contained">
-              <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
-            </ButtonLog>
-            <ButtonLog variant="contained">
-              <StyledLink to={`/register`}>Đăng ký</StyledLink>
-            </ButtonLog>
+          <ButtonLog variant="contained">
+            <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
+          </ButtonLog>
         </>
-      )
+      );
     }
+  };
 
-}
-
+  const renderAvatarSmallScreen = (user) => {
+    if (localStorage.getItem("UserCustomer")) {
+      return (
+        <>
+          <DivNormal>
+            <TitleH3
+              style={{
+                color: "black",
+                marginRight: "0px",
+                textAlign: "center",
+              }}
+            >
+              Hello, {user}
+            </TitleH3>
+          </DivNormal>
+          <ButtonLog
+            variant="contained"
+            onClick={() => {
+              localStorage.removeItem("UserCustomer");
+            }}
+          >
+            <StyledLink to={``}>Đăng xuất</StyledLink>
+          </ButtonLog>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <ButtonLog variant="contained">
+            <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
+          </ButtonLog>
+          <ButtonLog variant="contained">
+            <StyledLink to={`/register`}>Đăng ký</StyledLink>
+          </ButtonLog>
+        </>
+      );
+    }
+  };
 
   const [navLink, setNavLink] = useState({
     color: "white",
@@ -172,9 +172,7 @@ export default function Header(props) {
                 Trang Chủ
               </StyledNavLink>
             </Contact>
-            <Log>
-              {renderAvatar(user?.userLogin.taiKhoan)}
-            </Log>
+            <Log>{renderAvatar(user?.userLogin.taiKhoan)}</Log>
           </HeaderContent>
         </BigScreen>
 

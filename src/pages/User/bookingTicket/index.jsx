@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
 
 import { Tabs, Tab, Grid } from "@mui/material";
-import { connection } from "../../index";
+import { connection } from "../../../index";
 import _ from "lodash";
 import Loading from "components/loading";
 import TableBooking from "components/tableBooking";
@@ -48,16 +48,17 @@ const BookingTicket = () => {
 
   useEffect(() => {
     dispatch(actQuanLiDatVe(params.id));
-    //Vừa vào trang load tất cả ghế của các người khác đang đặt
-    connection.invoke("loadDanhSachGhe", params.id);
 
     //Có 1 client nào thực hiện việc đặt vé thành công mình sẽ load lại danh sách phòng vé của lịch chiếu đó
     connection.on("datVeThanhCong", () => {
       dispatch(actQuanLiDatVe(params.id));
     });
+    //Vừa vào trang load tất cả ghế của các người khác đang đặt
+    connection.invoke("loadDanhSachGhe", params.id);
 
     // Load danh sách ghế đang đặt từ server về (lắng nghe tín hiệu từ server trả về)
     connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
+      console.log("danhSachGheKhachDat", dsGheKhachDat);
       //Bước 1: Loại mình ra khỏi danh sách
       dsGheKhachDat = dsGheKhachDat.filter(
         (item) => item.taiKhoan !== userLogin.taiKhoan

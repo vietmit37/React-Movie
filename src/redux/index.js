@@ -7,6 +7,7 @@ import registerReducer from "./reducers/register";
 import { quanLiRapReducer } from "./reducers/quanLiRap";
 import { quanLiDatVeReducer } from "./reducers/quanLiDatVe";
 import { loadingReducer } from "./reducers/loadingReducer";
+import { adminReducer } from "./reducers/admin.reducer";
 
 const rootReducer = combineReducers({
   sliderMovieReducer,
@@ -17,5 +18,6 @@ const rootReducer = combineReducers({
   quanLiRapReducer,
   quanLiDatVeReducer,
   loadingReducer,
+  adminReducer,
 });
 export default rootReducer;

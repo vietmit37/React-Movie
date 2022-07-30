@@ -40,7 +40,6 @@ export const quanLiDatVeReducer = (state = initialState, action) => {
       } else {
         danhSachGheDangDatUpdate.push(action.payload);
       }
-
       return {
         ...state,
         danhSachGheDangDat: danhSachGheDangDatUpdate,

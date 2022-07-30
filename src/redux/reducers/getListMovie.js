@@ -1,3 +1,4 @@
+import { SEARCH_MOVIE } from "redux/constants/listMovie";
 import {
   LIST_MOVIE_REQUEST,
   LIST_MOVIE_SUCCESS,
@@ -55,7 +56,21 @@ const listMovieReducer = (state = initialState, action) => {
       );
       return { ...state };
     }
-
+    case SEARCH_MOVIE:
+      // Search movie
+      if (action.payload.search) {
+        state.dataDefault = state.data;
+      }
+      if (action.payload) {
+        state.dataDefault = state.dataDefault.filter((movie) => {
+          return (
+            movie.tenPhim
+              .toLowerCase()
+              .indexOf(action.payload.toLowerCase()) !== -1
+          );
+        });
+      }
+      return { ...state };
     default:
       return { ...state };
   }

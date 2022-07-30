@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundNotFound from "../../assets/Background/BackgroundNotFound.svg";
+import BackgroundNotFound from "../../../assets/Background/BackgroundNotFound.svg";
 function NotFound() {
   return (
     <div>

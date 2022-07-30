@@ -50,6 +50,7 @@ const TableBooking = (props) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  console.log(loadingAuth);
   const renderTicketBooked = () => {
     if (loadingAuth) {
       return (

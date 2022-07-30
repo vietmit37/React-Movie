@@ -23,7 +23,7 @@ export default function ListMovie() {
   const { data } = props;
   const renderListMovie = () => {
     const { data } = props;
-   
+
     return data?.slice(0, 16).map((movie) => {
       return (
         // <DivNormal
@@ -123,7 +123,7 @@ export default function ListMovie() {
         }}
         property={isActive.toString()}
       >
-        Phim Đang Chiếu
+        Phim Sắp Chiếu
       </StyleButton>
       <StyleButton
         variant="text"
@@ -133,7 +133,7 @@ export default function ListMovie() {
         }}
         property={isActive.toString()}
       >
-        Phim Sắp Chiếu
+        Phim Đang Chiếu
       </StyleButton>
       <Slider {...settings}>{renderListMovie()}</Slider>
     </Container>

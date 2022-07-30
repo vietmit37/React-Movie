@@ -16,9 +16,7 @@ const actLogin = (user, navigate) => {
         dispatch(actAuthSuccess(res.data.content));
 
         localStorage.setItem("UserCustomer", JSON.stringify(res.data.content));
-
-        // chuyen ve trang truosc khi dang nhap thanh cong
-        navigate("/", { replace: true });
+        navigate(-1);
       })
       .catch((err) => dispatch(actAuthFailed(err)));
   };

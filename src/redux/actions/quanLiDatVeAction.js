@@ -43,6 +43,7 @@ export const actDatVe = (thongTinDatVe) => {
     }
   };
 };
+// Đặt vé
 export const actDatGhe = (ghe, maLichChieu) => {
   return async (dispatch, getState) => {
     try {
@@ -52,9 +53,8 @@ export const actDatGhe = (ghe, maLichChieu) => {
       });
       // call api ve backend
       let danhSachGheDangDat = getState().quanLiDatVeReducer.danhSachGheDangDat;
-      let taiKhoan = getState().loginReducer.userLogin.taiKhoan;
+      let taiKhoan = getState().authReducer.userLogin.taiKhoan;
       danhSachGheDangDat = JSON.stringify(danhSachGheDangDat);
-      // call api ve signalr
       connection.invoke("datGhe", taiKhoan, danhSachGheDangDat, maLichChieu);
     } catch {
       console.log("Error");

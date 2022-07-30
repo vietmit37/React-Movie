@@ -13,9 +13,7 @@ const actRegister = (user, navigate) => {
       const res = await quanLiNguoiDung.getRegister(user);
       dispatch(actRegisterSuccess(res.data.content));
 
-      localStorage.setItem("UserCustomer", JSON.stringify(res.data.content));
-
-      navigate("/auth", { replace: true });
+      navigate("/auth");
     } catch (err) {
       dispatch(actRegisterFailed(err));
     }
