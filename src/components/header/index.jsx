@@ -96,9 +96,6 @@ export default function Header(props) {
           <ButtonLog variant="contained">
             <StyledLink to={`/auth`}>Đăng nhập</StyledLink>
           </ButtonLog>
-          <ButtonLog variant="contained">
-            <StyledLink to={`/register`}>Đăng ký</StyledLink>
-          </ButtonLog>
         </>
       );
     }
