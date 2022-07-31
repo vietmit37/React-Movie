@@ -14,7 +14,7 @@ Deploy: https://react-moive-bc25.vercel.app/
  + Trang register: /register
  + Trang chi tiết movie: /detailMovie/:id
  + Trang đặt vé: /bookingTicket/:id
-
+## 
 - Tùng:
 + Đặt vé                      Done 100%
 + Admin                       Done 100%
