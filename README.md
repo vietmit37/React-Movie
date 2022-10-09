@@ -1,5 +1,5 @@
 # Project Movie
-Deploy: https://react-moive-bc25.vercel.app/
+Deploy: https://react-moive.vercel.app/
 
 ## Route
 - Trang Admin: /admin
